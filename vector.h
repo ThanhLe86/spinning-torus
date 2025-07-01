@@ -4,11 +4,9 @@
 #include <cmath>
 #include <iostream> //just in case
 
-class vector
-{
-private:
-    double x, y, z = 0;
+class vector {
 public:
+    double x, y, z = 0;
     vector(double x, double y, double z) : x(x), y(y), z(z) {};
     
     //for 3D
