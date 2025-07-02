@@ -19,6 +19,30 @@ public:
 
         return vector(normal_x, normal_y, normal_z);
     }
+
+    vector& operator+= (vector vec2) {
+        x += vec2.x;
+        y += vec2.y;
+        z += vec2.z;
+
+        return *this;
+    }
+
+    vector& operator-= (vector vec2) {
+        x -= vec2.x;
+        y -= vec2.y;
+        z -= vec2.z;
+
+        return *this;
+    }
+
+    vector& operator*= (double scalar) {
+        x *= scalar;
+        y *= scalar;
+        z *= scalar;
+        
+        return *this;
+    }
 };
 
 #endif  //!__VECTOR__H__
