@@ -12,13 +12,12 @@ int main(int argc, char const *argv[])
     
     cout << "Coords: ";
 
-    for(double rotation_angle = 0; rotation_angle < pi; rotation_angle += pi/180){ //animating rotate for 180 degrees around x axis
+    for(double rotation_angle = 0; rotation_angle < 2*pi; rotation_angle += pi/180){ //animating rotate for 180 degrees around x axis
         for(double phi = 0; phi <= 2*pi; phi += pi/180){ 
-            vector circlePoints(R*cos(phi), R*sin(phi)*cos(rotation_angle) - 0*sin(rotation_angle), R*sin(phi)*sin(rotation_angle) + 0*cos(rotation_angle));
-            for(double theta = 0; theta <= 2*pi; theta += pi/100){
-                vector torusPoints(circlePoints.x*cos(theta) + circlePoints.x, r*sin(theta) + circlePoints.y, 0); //TODO: change this, to compute the coordinates of a point in  3d space
-
-                cout << "( " << torusPoints.x*cos(pi/2) << ", " << torusPoints.y << ", " << torusPoints.z * sin(pi/2) << " )";
+            vector mainCircle(R*cos(phi), R*sin(phi), 0);
+            for(double theta = 0; theta <= 2*pi; theta += pi/180){
+                vector torusPoints(r*cos(theta) + mainCircle.x, r*sin(theta) + mainCircle.y, mainCircle.y + r*sin(theta)); //before applying rotation
+                cout << "( " << torusPoints.x << ", " << torusPoints.y*cos(rotation_angle) << ", " << torusPoints.z*sin(rotation_angle) << " )";
             }
         }
     }

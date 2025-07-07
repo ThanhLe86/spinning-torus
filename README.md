@@ -52,10 +52,10 @@ So, a point on a smaller circle, before rotation, is P<sub>small</sub>​(ϕ)=(X
 
 So, for each main circle center Pmain​(X,Y,0) and for each point on the smaller circle defined by ϕ, the final 3D coordinates after rotation around the X-axis by angle α are:
 
-x<sub>final</sub>=X+rcos(ϕ)
+x<sub>final</sub> = X + rcos(ϕ)
 
-y<sub>final</sub>=(Y+rsin(ϕ))cos(α)
+y<sub>final</sub> = (Y + rsin(ϕ))cos(α)
 
-z<sub>final</sub>=(Y+rsin(ϕ))sin(α)
+z<sub>final</sub> = (Y + rsin(ϕ))sin(α)
 
 This process allows you to generate a series of points that form a "tube" or "torus-like" shape, where the smaller circles are oriented based on the rotation around the X-axis.
