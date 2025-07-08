@@ -4,23 +4,23 @@
 #include <cmath>
 #include <iostream> //just in case
 
-class vector {
+class Vector {
 public:
     double x, y, z = 0;
-    vector(double x, double y, double z) : x(x), y(y), z(z) {};
+    Vector(double x, double y, double z) : x(x), y(y), z(z) {};
     
     //for 3D
-    vector computeNormal(vector vecA, vector vecB) { 
+    Vector computeNormal(Vector vecA, Vector vecB) { 
 
         //Refer to notes of Graphics series
         double normal_x = vecA.y*vecB.z - vecA.z*vecB.y;
         double normal_y = vecA.z*vecB.x - vecA.x*vecB.z;
         double normal_z = vecA.x*vecB.y - vecA.y*vecB.x;
 
-        return vector(normal_x, normal_y, normal_z);
+        return Vector(normal_x, normal_y, normal_z);
     }
 
-    vector& operator+= (vector vec2) {
+    Vector& operator+= (Vector vec2) {
         x += vec2.x;
         y += vec2.y;
         z += vec2.z;
@@ -28,7 +28,7 @@ public:
         return *this;
     }
 
-    vector& operator-= (vector vec2) {
+    Vector& operator-= (Vector vec2) {
         x -= vec2.x;
         y -= vec2.y;
         z -= vec2.z;
@@ -36,7 +36,7 @@ public:
         return *this;
     }
 
-    vector& operator*= (double scalar) {
+    Vector& operator*= (double scalar) {
         x *= scalar;
         y *= scalar;
         z *= scalar;

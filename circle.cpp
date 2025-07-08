@@ -1,23 +1,32 @@
 #include <iostream>
 #include <cmath>
-#include "vector.h"
+#include <vector>
+#include "Vector.h"
+#include "console.h"
 
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
-    double const pi = 3.14159;
-    double const R = 3;
-    double const r = 1.5;
-    
-    cout << "Coords: ";
+    console console;
+    int viewPortWidth = console.getConsoleWidth();
+    int viewPortHeight = console.getConsoleHeight();
 
-    for(double rotation_angle = 0; rotation_angle < 2*pi; rotation_angle += pi/180){ //animating rotate for 180 degrees around x axis
+    double const pi = 3.14159;
+    double const torusRadius = 50;
+    double const tubeRadius = 20;
+    double const torusLocation = 150;
+
+    vector<vector<char>> viewPort(viewPortWidth, vector<char>(viewPortHeight, ' '));
+
+    cout << "Coords: ";
+    for(double rotation_angle = 0; rotation_angle < 2*pi; rotation_angle += pi/180){
+        console.clearConsole();
         for(double phi = 0; phi <= 2*pi; phi += pi/180){ 
-            vector mainCircle(R*cos(phi), R*sin(phi), 0);
+            Vector mainCircle(torusRadius*cos(phi) + torusLocation, torusRadius*sin(phi) + torusLocation, 0);
             for(double theta = 0; theta <= 2*pi; theta += pi/180){
-                vector torusPoints(r*cos(theta) + mainCircle.x, r*sin(theta) + mainCircle.y, mainCircle.y + r*sin(theta)); //before applying rotation
-                cout << "( " << torusPoints.x << ", " << torusPoints.y*cos(rotation_angle) << ", " << torusPoints.z*sin(rotation_angle) << " )";
+                Vector torusPoints(tubeRadius*cos(theta) + mainCircle.x, tubeRadius*sin(theta) + mainCircle.y, mainCircle.y + tubeRadius*sin(theta)); //before applying rotation
+                //console.PrintToXY(torusPoints.x, torusPoints.y*cos(rotation_angle), 'o'); // #Needs improvement
             }
         }
     }
@@ -32,6 +41,4 @@ int main(int argc, char const *argv[])
 // y = R*sin(phi)
 // z = 0
 
-//phi: angle for rotating around the center 
-//theta: angle for rotating around each point on the main torus circle
-//rotation_angle: main rotation angle for rotating the entire torus
+
