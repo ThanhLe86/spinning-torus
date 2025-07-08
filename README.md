@@ -59,3 +59,8 @@ y<sub>final</sub> = (Y + rsin(ϕ))cos(α)
 z<sub>final</sub> = (Y + rsin(ϕ))sin(α)
 
 This process allows you to generate a series of points that form a "tube" or "torus-like" shape, where the smaller circles are oriented based on the rotation around the X-axis.
+
+# In Short:
+- **phi**: angle for rotating around the center 
+- **theta**: angle for rotating around each point on the main torus circle
+- **rotation_angle**: main rotation angle for rotating the entire torus
