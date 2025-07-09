@@ -64,3 +64,7 @@ This process allows you to generate a series of points that form a "tube" or "to
 - **phi**: angle for rotating around the center 
 - **theta**: angle for rotating around each point on the main torus circle
 - **rotation_angle**: main rotation angle for rotating the entire torus
+
+#### DEVLOG:
+**Update 09.07.2025**
+It seems that the for loop for iterating through points on a circle doesn't really work, it just prints out a consecutive line of symbols no matter what I do. Further observations must be made.
